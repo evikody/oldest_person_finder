@@ -32,9 +32,20 @@ while True:
     # Store valid inputs in the list
     records.append({"name": user_name, "age": user_age})
 
-    retry = input("Do you want to enter another entry? Yes or No: ") # Ask if the user wants to continue
-    if retry == 'No': # If the user responds with No
-        break # Exit the loop
+    # Loop 4: This will continue asking until the user enter a proper Yes or No
+    while True:
+        retry = input("Do you want to enter another entry? Yes or No: ") # Ask if the user wants to continue
+        # If the first letter is not capitalized, print the error and loop again
+        if retry.lower() == "yes" or retry.lower() == "no":
+            if retry != "Yes" and retry != "No":
+                print("The first letter should be capitalized (Yes/No).")
+            else:
+                break  # Properly capitalized "Yes" or "No"
+        else:
+            print("Invalid input. Please type Yes or No.")
+
+    if retry == "No":
+        break  # Stop asking for entries if the user says "No"
 
 if records: # Check if the list is not empty
     oldest_person = records[0] # Assume that the first person is the oldest
