@@ -8,7 +8,7 @@ def valid_age(user_age): # Define a function named "valid_age" to validate each 
 
 records = [] # The collected information will store here
 
-# Loop 3: A loop to collect user input
+# Loop 1: A loop to collect user input
 while True:
 
     # Loop 2: This will continue asking for input until the user enters a valid name
@@ -35,3 +35,13 @@ while True:
     retry = input("Do you want to enter another entry? Yes or No: ") # Ask if the user wants to continue
     if retry == 'No': # If the user responds with No
         break # Exit the loop
+
+if records: # Check if the list is not empty
+    oldest_person = records[0] # Assume that the first person is the oldest
+    for person in records: # Loop through all the person in the list
+        if person["age"] > oldest_person["age"]: # Compare their age
+            oldest_person = person # If the current person is older, update oldest_person
+    print(f"The oldest person is {oldest_person['name']} with age {oldest_person['age']}.")
+else:
+    # If the 'records' list is empty, inform the user that no data was collected
+    print("No data collected.")
