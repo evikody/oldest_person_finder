@@ -6,7 +6,14 @@ def valid_name(user_name): # Define a function named "valid_name" to validate ea
 
 def valid_age(user_age): # Define a function named "valid_age" to validate each age inputted
     # Use .isdigit to check if "user_age" contains only digits
-    return user_age.isdigit() # Returns True if all characters in the string are digits
+    if not user_age.isdigit(): # If the user_age does not contain only digits
+        return False # Invalid input
+
+    age = int(user_age)
+    # If age is greater than 0 and is less than or equal to 122 then return True
+    # If not then return False
+    return 0 < age <= 122
+
 
 records = [] # The collected information will store here
 
