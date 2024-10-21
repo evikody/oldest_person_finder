@@ -8,24 +8,30 @@ def valid_age(user_age): # Define a function named "valid_age" to validate each 
 
 records = [] # The collected information will store here
 
-# Loop 1: This will continue asking for input until the user enters a valid name
+# Loop 3: A loop to collect user input
 while True:
-    user_name = input("Please enter your name: ") # Ask the user to input their name
 
-    if valid_name(user_name): #If valid, it breaks out of the loop and moves on to the next part of the program
-        break
-    else: #If invalid, it prints an error message and repeats the process
-        print("Error: Please enter a valid name.")
+    # Loop 2: This will continue asking for input until the user enters a valid name
+    while True:
+        user_name = input("Please enter your name: ") # Ask the user to input their name
 
-# Loop 2: This will continue asking for input until the user enters a valid age
-while True:
-    user_age = (input("Please enter your age: ")) # Ask the user to input their age
+        if valid_name(user_name): #If valid, it breaks out of the loop and moves on to the next part of the program
+            break
+        else: #If invalid, it prints an error message and repeats the process
+            print("Error: Please enter a valid name.")
 
-    if valid_age(user_age): #If valid, it breaks out of the loop and moves on to the next part of the program
-        break
-    else: #If invalid, it prints an error message and repeats the process
-        print("Error: Please enter a valid age.")
+    # Loop 3: This will continue asking for input until the user enters a valid age
+    while True:
+        user_age = (input("Please enter your age: ")) # Ask the user to input their age
 
-# Store valid inputs in the list
-records.append({"name": user_name, "age": user_age})
+        if valid_age(user_age): # If valid
+            break # It breaks out of the loop and moves on to the next part of the program
+        else: # If invalid
+            print("Error: Please enter a valid age.") # It prints an error message and repeats the process
 
+    # Store valid inputs in the list
+    records.append({"name": user_name, "age": user_age})
+
+    retry = input("Do you want to enter another entry? Yes or No: ") # Ask if the user wants to continue
+    if retry == 'No': # If the user responds with No
+        break # Exit the loop
