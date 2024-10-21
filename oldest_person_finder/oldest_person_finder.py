@@ -1,7 +1,8 @@
 def valid_name(user_name): # Define a function named "valid_name" to validate each name inputted
     # Use .isalpha to check if "user_name" contains only alphabetic letters and .split for spacings
     # Use char in ["'", " "] to allow apostrophes and spaces
-    return all(char.isalpha() or char in ["'", " "] for char in user_name) # Returns True if all characters in the string are in the alphabet
+    # Use .strip to ensure that the input is not empty or just spaces
+    return all(char.isalpha() or char in ["'", " "] for char in user_name) and user_name.strip() != "" # Returns True if all characters in the string are in the alphabet
 
 def valid_age(user_age): # Define a function named "valid_age" to validate each age inputted
     # Use .isdigit to check if "user_age" contains only digits
