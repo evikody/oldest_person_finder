@@ -1,10 +1,10 @@
 def valid_name(user_name): # Define a function named "valid_name" to validate each name inputted
-    # Use .isalpha to check if "user_name" contains only alphabetic letters
-    return user_name.isalpha() # Returns True if all characters in the string are in the alphabet
+    # Use .isalpha to check if "user_name" contains only alphabetic letters and .split for spacings
+    return all(part.isalpha() for part in user_name.split()) # Returns True if all characters in the string are in the alphabet
 
 def valid_age(user_age): # Define a function named "valid_age" to validate each age inputted
     # Use .isdigit to check if "user_age" contains only digits
-    return user_age.isdigit()
+    return user_age.isdigit() # Returns True if all characters in the string are digits
 
 records = [] # The collected information will store here
 
